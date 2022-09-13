@@ -4,16 +4,16 @@ provider "google" {
   zone    = var.zone
 }
 
-module "dev_db" {
-  source               = "./db"
-  database_project     = var.project
-  database_region      = var.region
-  db_tier              = "db-f1-micro"
-  database_name        = var.db_dev_name
-  db_user              = var.db_dev_user
-  db_password          = var.db_dev_password
-  allowed_network_cidr = "0.0.0.0/0"
-}
+#module "dev_db" {
+#  source               = "./db"
+#  database_region      = var.region
+#  database_project     = var.project
+#  db_tier              = "db-f1-micro"
+#  database_name        = var.db_dev_name
+#  db_user              = var.db_dev_user
+#  db_password          = var.db_dev_password
+#  allowed_network_cidr = "0.0.0.0/0"
+#}
 
 module "dev_k8s" {
   source                         = "./k8s"
@@ -44,9 +44,9 @@ module "dev_k8s_service_accounts" {
   k8s_iam_service_account_name = "dev-k8s-iam-ser-ac"
 }
 
-module "dev_nfs_share" {
-  source          = "./storage"
-  storage_name    = "dev-jenkins-nfs-storage"
-  storage_project = var.project
-  storage_zone    = var.zone
-}
+#module "dev_nfs_share" {
+#  source          = "./storage"
+#  storage_name    = "dev-jenkins-nfs-storage"
+#  storage_project = var.project
+#  storage_zone    = var.zone
+#}
